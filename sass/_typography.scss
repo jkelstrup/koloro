@@ -1,0 +1,26 @@
+$fonts: "Source Sans Pro", sans-serif;
+$fonts-mono: "Source Code Pro", monospace;
+
+body {
+  font-family: $fonts;
+  color: $primary;
+  font-size: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 48px;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 1em;
+  color: $secondary;
+  font-weight: 400;
+}

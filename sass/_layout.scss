@@ -1,0 +1,93 @@
+body {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.container {
+  padding: 30px;
+  background: $background;
+  height: auto;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.fields {
+  @include display(flex);
+  @include justify-content(space-around);
+  width: 250px;
+}
+
+.field-group {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(space-between);
+  height: 150px;
+}
+
+.field {
+  position: relative;
+  width: 90px;
+  display: block;
+  height: 40px;
+
+  label {
+    position: absolute;
+    line-height: 40px;
+    color: $secondary;
+  }
+
+  input {
+    position: absolute;
+    font-size: 1em;
+    background: none;
+    text-align: right;
+    width: 100%;
+    line-height: 40px;
+    border: none;
+    border-bottom: 1px solid $secondary;
+    padding: 0;
+    font-family: $fonts;
+    color: $primary;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.focus {
+    label {
+      color: $primary;
+    }
+
+    input {
+      border-bottom: 1px solid $primary;
+    }
+  }
+}
+
+.hex-code {
+  background: $background-dark;
+  padding: 10px;
+  border-radius: 999px;
+  text-align: center;
+  margin-top: 30px;
+  color: $secondary;
+  font-family: $fonts-mono;
+}
+
+#hash,
+#hex {
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &::selection {
+    background: red;
+    color: $primary;
+  }
+}

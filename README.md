@@ -5,6 +5,8 @@ I found myself opening up Photoshop just to use the color picker. That's stupid.
 
 What I needed was a very simple color picker that supported input as HSV and RGB and returned the HEX value.
 
+You can find (hopefully) working at [koloro.cc](http://www.koloro.cc)
+
 ### Features
 - Input a RGB value and get the HSV and HEX
 - Input a HSV value and get the RGB and HEX

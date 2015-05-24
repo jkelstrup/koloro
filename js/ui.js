@@ -23,6 +23,18 @@ function selectText(element) {
     selection.removeAllRanges();
     selection.addRange(range);
   }
+
+  var successful = document.execCommand('copy');
+
+  if (successful) {
+    // $("flash-msg").classList.add("show");
+    var flashMsg = $("#flash-msg");
+    flashMsg.classList.add("show");
+
+    setTimeout(function () {
+      flashMsg.classList.remove("show");
+    }, 2000);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {

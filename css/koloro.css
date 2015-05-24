@@ -145,7 +145,23 @@ body {
   text-align: center;
   margin-top: 30px;
   color: rgba(255, 255, 255, 0.4);
-  font-family: "Source Code Pro", monospace; }
+  font-family: "Source Code Pro", monospace;
+  position: relative; }
+  .hex-code .flash-msg {
+    position: absolute;
+    font-family: "Source Sans Pro", sans-serif;
+    background: #fff;
+    color: #000;
+    font-size: 15px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    top: -25px;
+    left: 50%;
+    width: 160px;
+    margin-left: -80px;
+    display: none; }
+    .hex-code .flash-msg.show {
+      display: block; }
 
 #hash,
 #hex {

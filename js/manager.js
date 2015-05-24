@@ -61,11 +61,11 @@ var KoloroManager = (function() {
     }
 
     if (val == "h") {
-      hsv[h] = amount;
-      if (hsv[h] < 0) {
-        hsv[h] = 0;
-      } else if (hsv[h] > 360) {
-        hsv[h] = 360;
+      hsv.h = amount;
+      if (hsv.h < 0) {
+        hsv.h = 0;
+      } else if (hsv.h > 360) {
+        hsv.h = 360;
       }
       rgb = ColorConverter.hsv2rgb(hsv.h, hsv.s, hsv.v);
     }
@@ -97,10 +97,10 @@ var KoloroManager = (function() {
 
     if (val == "h") {
       hsv.h += amount;
-      if (hsv[h] < 0) {
-        hsv[h] = 360 - hsv[h];
-      } else if (hsv[h] > 360) {
-        hsv[h] %= 360;
+      if (hsv.h < 0) {
+        hsv.h = 360 + hsv.h; // Plus because the mod is already negative
+      } else if (hsv.h > 360) {
+        hsv.h %= 360;
       }
       rgb = ColorConverter.hsv2rgb(hsv.h, hsv.s, hsv.v);
     }

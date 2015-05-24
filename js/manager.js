@@ -17,6 +17,7 @@ var KoloroManager = (function() {
   function initialColor() {
     var hash = window.location.hash.substring(1);
     if (ColorConverter.validateHex(hash)) {
+      hash = ColorConverter.fullHex(hash);
       rgb = ColorConverter.hex2rgb(hash);
       hsv = ColorConverter.rgb2hsv(rgb.r, rgb.g, rgb.b);
       render();

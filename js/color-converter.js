@@ -152,7 +152,7 @@ var ColorConverter = (function () {
 
     var hexCode = leadingZero(r) + leadingZero(g) + leadingZero(b);
 
-    return hexCode;
+    return shorthandHex(hexCode);
   };
 
   //
@@ -168,12 +168,42 @@ var ColorConverter = (function () {
 
   //
   // Validate HEX
+  // Incl. shorthand HEX
   //
   var validateHex = function(hex) {
-    if (hex.length != 6) {
-      return false;
+    if (hex.length == 3) { // Shorthand
+      return /[0-9A-F]{3}$/i.test(hex);
+    } else if (hex.length == 6) {
+      return /[0-9A-F]{6}$/i.test(hex);
     }
-    return /[0-9A-F]{6}$/i.test(hex);
+    return false;
+  };
+
+  //
+  // Full HEX to shorthand HEX
+  // (If possible)
+  //
+  var shorthandHex = function(full) {
+    var a = full.split('');
+    if (a[0] == a[1] && a[2] == a[3] && a[4] == a[5]) {
+      return a[0] + a[2] + a[4];
+    }
+    return full;
+  };
+
+  //
+  // Shorthand HEX to full HEX
+  //
+  var fullHex = function(shorthand) {
+    if (shorthand.length != 3) {
+      return shorthand; // Wasn't shorthand.
+    }
+
+    var r = shorthand.substring(0,1);
+    var g = shorthand.substring(1,2);
+    var b = shorthand.substring(2);
+
+    return r + r + g + g + b + b;
   };
 
   return {
@@ -181,7 +211,9 @@ var ColorConverter = (function () {
     rgb2hsv: rgb2hsv,
     rgb2hex: rgb2hex,
     hex2rgb: hex2rgb,
-    validateHex: validateHex
+    validateHex: validateHex,
+    shorthandHex: shorthandHex,
+    fullHex: fullHex
   };
 
 })();

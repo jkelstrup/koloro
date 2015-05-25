@@ -15,6 +15,7 @@ You can find it (hopefully) working at [koloro.cc](http://www.koloro.cc)
 - The URL reflects the HEX (and can be used to input HEX as well)
 - Click the HEX value to select it excluding the pound sign (to copy manually)
 - Click the pound sign to select everything including the pound sign (to copy manually)
+- This now copies directly to clipboard in Chrome 43+
 
 ## License
 [MIT License](http://opensource.org/licenses/mit-license.php)

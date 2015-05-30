@@ -5,13 +5,13 @@ body {
 }
 
 .container {
-  padding: 30px;
+  padding: 0 30px;
   background: $background;
   height: auto;
 }
 
 .title {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .fields {
@@ -110,4 +110,10 @@ body {
     background: red;
     color: $primary;
   }
+}
+
+.twitter {
+  text-align: center;
+  display: block;
+  margin: 15px 0;
 }

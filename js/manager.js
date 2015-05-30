@@ -119,10 +119,27 @@ var KoloroManager = (function() {
     render();
   }
 
+  function getRGB() {
+    return rgb;
+  }
+
+  function getHSV() {
+    return hsv;
+  }
+
+  function getHex() {
+    return hex;
+  }
+
+
+
   return {
     initialColor: initialColor,
     input: input,
-    update: update
+    update: update,
+    getRGB: getRGB,
+    getHSV: getHSV,
+    getHex: getHex
   };
 
 })();

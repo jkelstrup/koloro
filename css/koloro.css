@@ -58,12 +58,12 @@ body {
   -ms-flex-pack: center; }
 
 .container {
-  padding: 30px;
+  padding: 0 30px;
   background: rgba(0, 0, 0, 0.5);
   height: auto; }
 
 .title {
-  margin-bottom: 20px; }
+  margin: 20px 0; }
 
 .fields {
   display: -webkit-box;
@@ -173,5 +173,15 @@ body {
   #hex::selection {
     background: red;
     color: #fff; }
+
+.twitter {
+  text-align: center;
+  display: block;
+  margin: 15px 0; }
+
+svg .color-white {
+  fill: rgba(255, 255, 255, 0.25); }
+  svg .color-white:hover {
+    fill: #fff; }
 
 /*# sourceMappingURL=koloro.css.map */

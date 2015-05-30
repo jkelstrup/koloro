@@ -1,0 +1,9 @@
+svg {
+  .color-white {
+    fill: rgba(#fff,.25);
+
+    &:hover {
+      fill: #fff;
+    }
+  }
+}

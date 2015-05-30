@@ -55,7 +55,8 @@ body {
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
+  -ms-flex-pack: center;
+  transition: background-color 500ms ease; }
 
 .container {
   padding: 0 30px;

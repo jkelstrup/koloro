@@ -7,6 +7,8 @@ var $$ = function (el) {
 };
 
 function selectText(element) {
+  saveColor(KoloroManager.getHex());
+
   var doc = document,
       text = doc.getElementById(element),
       range,
@@ -36,6 +38,21 @@ function selectText(element) {
     }, 2000);
   }
 }
+
+function saveColor(hex) {
+  var newItem = document.createElement("LI");
+  var link = document.createElement("A");
+  link.href = "#" + hex;
+  link.style.backgroundColor = "#" + hex;
+  newItem.appendChild(link);
+  var list = $("#saved-colors");
+  list.insertBefore(newItem, list.childNodes[2]);
+  // list.appendChild(newItem);
+}
+
+window.addEventListener("hashchange", function(event) {
+  KoloroManager.initialColor();
+}, false);
 
 document.addEventListener("DOMContentLoaded", function(event) {
 

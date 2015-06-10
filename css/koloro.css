@@ -180,6 +180,38 @@ body {
   display: block;
   margin: 15px 0; }
 
+.saved-colors {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  height: 100%;
+  overflow: auto; }
+  .saved-colors li a {
+    border: none;
+    display: block;
+    padding: 0;
+    margin: 10px;
+    /* border: 2px solid white; */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    width: 10vh;
+    height: 10vh;
+    background: lime;
+    border-radius: 999px; }
+    .saved-colors li a.save-color {
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: none;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+      font-size: 60px;
+      text-decoration: none;
+      line-height: 10vh;
+      font-weight: 200; }
+      .saved-colors li a.save-color:hover {
+        color: #fff; }
+
 svg .color-white {
   fill: rgba(255, 255, 255, 0.25); }
   svg .color-white:hover {

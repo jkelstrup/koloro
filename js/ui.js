@@ -7,8 +7,6 @@ var $$ = function (el) {
 };
 
 function selectText(element) {
-  saveColor(KoloroManager.getHex());
-
   var doc = document,
       text = doc.getElementById(element),
       range,
@@ -39,7 +37,18 @@ function selectText(element) {
   }
 }
 
-function saveColor(hex) {
+// function saveColor(hex) {
+//   Storage.save(hex);
+//   insertSavedColor(hex);
+// }
+
+function loadSavedColors() {
+  Storage.colors.forEach(function(hex) {
+    insertSavedColor(hex);
+  });
+}
+
+function insertSavedColor(hex) {
   var newItem = document.createElement("LI");
   var link = document.createElement("A");
   link.href = "#" + hex;
@@ -47,17 +56,9 @@ function saveColor(hex) {
   newItem.appendChild(link);
   var list = $("#saved-colors");
   list.insertBefore(newItem, list.childNodes[2]);
-  // list.appendChild(newItem);
 }
 
-window.addEventListener("hashchange", function(event) {
-  KoloroManager.initialColor();
-}, false);
-
-document.addEventListener("DOMContentLoaded", function(event) {
-
-  KoloroManager.initialColor();
-
+function addInputEvents() {
   [].forEach.call($$('input'), function (el) {
     el.addEventListener('focus', function(event) {
       this.parentNode.classList.add('focus');
@@ -72,5 +73,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
       keyboardControl(event, this);
     }, false);
   });
+}
+
+window.addEventListener("hashchange", function(event) {
+  KoloroManager.initialColor();
+}, false);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  addInputEvents();
+  KoloroManager.initialColor();
+  loadSavedColors();
+
+  $("#save-color").addEventListener("click", function(event) {
+    event.preventDefault();
+    Storage.save(KoloroManager.getHex());
+  }, false);
 
 });
